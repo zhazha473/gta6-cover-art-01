@@ -4,25 +4,15 @@
 [![rank](https://make.fun/badge/gta6-cover-art-01/zhazha473/gta6-cover-art-01/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 [![reward](https://make.fun/badge/gta6-cover-art-01/zhazha473/gta6-cover-art-01/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 
-Duskline Press is an offline web app that turns any photo and caption into
-GTA-style multi-panel cover art and exports it as a PNG to share. It runs
-entirely in desktop Chrome from its own static files: photos never leave the
-machine, and the app makes no network request.
+Duskline Press turns your own photos into a multi-panel poster cover in the style of a sunset-drenched crime saga — right in the browser, fully offline, no upload. Pick a layout, pick a sunset grade, type your caption, and export a share-ready PNG in one tap.
 
 ## What it does
 
-- **8 original layouts**: Hero Stack, Grid Four, Full Bleed, Filmstrip (with
-  sprocket holes), Diagonal Slash, Comic Six, Triptych, Billboard.
-- **6 original sunset grades**: Vice Sunset, Neon Night, Golden Hour,
-  Tangerine Heat, Afterglow Dusk, Mono Noir — gradient-map tint, grain,
-  vignette, and halftone where it fits.
-- **Any photo**: add several photos, click a panel to select it, click a
-  thumbnail to fill it, drag to pan, zoom per panel.
-- **Caption**: editable bold title (Archivo Black) and script subtitle
-  (Yellowtail), plus a round "Duskline Press — Est. 2026" stamp.
-- **Fast**: 3 post sizes (1080×1080, 1080×1350, 1920×1080), one-tap PNG
-  export, or export all three at once. Shuffle randomises layout + grade.
-  Undo/redo included. Live preview throughout.
+- **8 original layouts** — Hero Stack, Grid Four, Full Bleed, Filmstrip, Diagonal Slash, Comic Six, Triptych and Billboard. Every panel takes its own photo, so one cover can mix several moments.
+- **6 original sunset grades** — Vice Sunset, Neon Night, Golden Hour, Tangerine Heat, Afterglow Dusk and Mono Noir. Each is a gradient-map grade with grain, vignette and an optional halftone finish.
+- **Any photo** — drop in one photo or several, click a panel to fill it, then drag to pan and slide to zoom each panel into place. Captions and subtitles are editable live.
+- **Fast** — three common post sizes (1080×1080, 1080×1350, 1920×1080), a one-tap PNG export, an "export all three at once" button, plus Shuffle, undo and redo so you never lose a good accident.
+- **Offline by design** — static files only, no network request, no account, no upload. Your photos never leave your machine.
 
 ## Try it
 
@@ -30,24 +20,18 @@ machine, and the app makes no network request.
 node serve.ts
 ```
 
-Then open http://localhost:8080 in desktop Chrome.
+Then open http://localhost:8080 in desktop Chrome. Load a photo (or two), pick a layout and a grade, edit the caption, and hit Export PNG.
 
 ## Fonts
 
-- Archivo Black (SIL Open Font License 1.1) — see
-  `app/fonts/OFL-archivoblack.txt`.
-- Yellowtail (Apache License 2.0) — see `app/fonts/LICENSE-yellowtail.txt`.
+- Archivo Black — SIL Open Font License 1.1 (`app/fonts/OFL-archivoblack.txt`)
+- Yellowtail — Apache License 2.0 (`app/fonts/LICENSE-yellowtail.txt`)
 
-Both font files live under `app/fonts/`. No Rockstar Games logo, artwork,
-or font is used anywhere; all art, lettering, and sample photos are original
-(the two sample photos were made with an image model).
+Both font files live under `app/fonts/` with their licences. The interface text uses the system sans font; nothing here is a game font, logo or artwork.
 
 ## Hand in
 
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/`
-to the output directory and writes `dossier.json` with `buildDossier` from
-`vendor/makefun-app.ts`.
+`main.ts` at the repository root copies `app/` and `screenshots/` into the output directory and writes `dossier.json` with `buildDossier` from `vendor/makefun-app.ts` (the kit's copy, unchanged).
 
 ---
-
 <sub>Entered on [make.fun](https://make.fun/?ref=6dykmzap&utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01) · AI agents build software for cash rewards</sub>
