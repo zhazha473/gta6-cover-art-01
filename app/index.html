@@ -1,59 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Duskline Press — GTA-style cover art maker</title>
-<link rel="stylesheet" href="style.css">
+<title>Duskline Press — GTA 6-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<header class="topbar">
+<header class="masthead">
   <div class="brand"><span class="brand-mark">DP</span> DUSKLINE PRESS</div>
-  <div class="top-actions">
-    <button id="undoBtn" type="button" title="Undo">Undo</button>
-    <button id="redoBtn" type="button" title="Redo">Redo</button>
-    <button id="shuffleBtn" type="button" title="Shuffle layout and grade">Shuffle</button>
-    <button id="exportBtn" type="button" class="primary">Export PNG</button>
-    <button id="exportAllBtn" type="button" class="primary">Export all 3 sizes</button>
-  </div>
+  <p class="tagline">A photo and a caption, pressed into GTA 6-style cover art. 8 layouts · 6 sunset grades · 3 post sizes.</p>
 </header>
-<main class="workspace">
-  <section class="stage">
-    <canvas id="preview" width="1080" height="1080" aria-label="Cover preview"></canvas>
-    <p class="hint">Click a panel to select it, then pick a photo for it. Drag a photo to pan it, scroll to zoom.</p>
-    <div class="panel-strip" id="panelStrip"></div>
-    <div id="selftest" hidden></div>
+<main class="app">
+  <section class="controls" aria-label="Press controls">
+    <h2>1 · Photos <span class="hint">click a panel on the cover to pick it</span></h2>
+    <div id="slots" class="slots"></div>
+
+    <h2>2 · Layout</h2>
+    <div id="layouts" class="picks"></div>
+
+    <h2>3 · Sunset grade</h2>
+    <div id="grades" class="picks"></div>
+
+    <h2>4 · Words</h2>
+    <label>Title <input id="title" type="text" maxlength="40" value="DUSKLINE HEIST"></label>
+    <label>Tagline <input id="tagline" type="text" maxlength="48" value="one last sunset job"></label>
+
+    <h2>5 · Post size</h2>
+    <div id="sizes" class="picks"></div>
+
+    <div class="actions">
+      <button id="shuffle" type="button">Shuffle the press</button>
+      <button id="undo" type="button" disabled>Undo</button>
+      <button id="redo" type="button" disabled>Redo</button>
+      <button id="export" type="button" class="primary">Export PNG</button>
+      <button id="export-all" type="button" class="primary">Export all 3 sizes</button>
+    </div>
+    <p id="status" role="status">Pick a layout and a grade — the cover updates live.</p>
+    <p id="selftest" role="status"></p>
   </section>
-  <aside class="controls">
-    <label class="field">Photos
-      <input id="photoInput" type="file" accept="image/*" multiple>
-      <span class="field-note">Drop photos anywhere on the page, or pick files. Click a panel first to fill that panel.</span>
-    </label>
-    <fieldset class="field">
-      <legend>Layout — 8</legend>
-      <div class="choices" id="layoutChoices"></div>
-    </fieldset>
-    <fieldset class="field">
-      <legend>Sunset grade — 6</legend>
-      <div class="choices" id="gradeChoices"></div>
-    </fieldset>
-    <fieldset class="field">
-      <legend>Post size — 3</legend>
-      <div class="choices" id="sizeChoices"></div>
-    </fieldset>
-    <label class="field">Caption
-      <input id="captionInput" type="text" value="SUNSET DRIVE" maxlength="40">
-    </label>
-    <label class="field">Subtitle
-      <input id="subtitleInput" type="text" value="golden hour, your story" maxlength="60">
-    </label>
-    <label class="field">Zoom — selected panel
-      <input id="zoomInput" type="range" min="1" max="2.5" step="0.01" value="1">
-    </label>
-    <label class="check"><input id="halftoneInput" type="checkbox"> Halftone finish</label>
-    <p class="note">Offline by design: your photos never leave this machine. No Rockstar logo, artwork or font — all lettering is our own, set in Archivo Black and Yellowtail.</p>
-  </aside>
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    <p class="caption">Everything stays on your machine — photos are never uploaded anywhere.</p>
+  </section>
 </main>
-<script type="module" src="src/main.js"></script>
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>
