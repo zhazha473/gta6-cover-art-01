@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskline Press — GTA-style cover art maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">DP</span><span class="brand-name">DUSKLINE PRESS</span></div>
+  <p class="tagline">Photo to poster in one tap — offline, on your machine.</p>
+</header>
+<main class="editor" id="editor">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <label class="drop" id="dropZone">
+        <input type="file" id="photoInput" accept="image/*" multiple hidden>
+        <span>Drop photos here or click to add</span>
+      </label>
+      <div class="thumbs" id="thumbs" aria-label="Loaded photos"></div>
+      <p class="hint">Click a thumbnail to put that photo in the selected panel. Click a panel in the preview to select it.</p>
+    </div>
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div class="btn-grid" id="layoutButtons"></div>
+    </div>
+    <div class="group">
+      <h2>3 · Sunset grade</h2>
+      <div class="btn-grid" id="gradeButtons"></div>
+    </div>
+    <div class="group">
+      <h2>4 · Caption</h2>
+      <label class="field">Title
+        <input type="text" id="titleInput" value="DUSKLINE" maxlength="24">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitleInput" value="Vice nights, one tap away" maxlength="48">
+      </label>
+    </div>
+    <div class="group">
+      <h2>5 · Selected panel</h2>
+      <p class="hint" id="panelLabel">Panel 1 selected — drag on the preview to pan, use zoom below.</p>
+      <label class="field">Zoom
+        <input type="range" id="zoomInput" min="0.6" max="3" step="0.05" value="1">
+      </label>
+      <div class="row">
+        <button type="button" id="shuffleBtn">Shuffle</button>
+        <button type="button" id="undoBtn">Undo</button>
+        <button type="button" id="redoBtn">Redo</button>
+      </div>
+    </div>
+    <div class="group">
+      <h2>6 · Export</h2>
+      <div class="btn-grid" id="sizeButtons"></div>
+      <div class="row">
+        <button type="button" id="exportBtn" class="primary">Export PNG</button>
+        <button type="button" id="exportAllBtn" class="primary">Export all 3 sizes</button>
+      </div>
+      <p class="hint">PNG downloads to your machine. Nothing is uploaded.</p>
+    </div>
+  </section>
+  <section class="stage" aria-label="Live preview">
+    <canvas id="preview" width="1080" height="1080"></canvas>
+    <p class="hint">Live preview — drag a panel to reposition its photo.</p>
+  </section>
+</main>
+<div id="selftest" aria-live="polite"></div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
